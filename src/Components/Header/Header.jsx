@@ -20,9 +20,9 @@ const SLIDES = [
   {
     img: carousel1,
     tag: 'Event Solutions',
-    heading: 'From Dream\nTo Delivery',
-    sub: 'Pakistan\'s leading exhibition & events production company.',
-  },
+    heading: 'Pakistan\'s Leading Exhibition & Stall Fabrication Company Since 2014',
+    sub: 'Transforming Ideas Into Reality',
+  }
 ];
 
 export default function Header() {

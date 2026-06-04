@@ -80,7 +80,7 @@ export default function Interior() {
               className={`ip__card${p.featured ? ' ip__card--featured' : ''}`}
               onClick={() => setLightboxIndex(i)}
             >
-              <img src={p.img} alt={p.title} className="ip__img" />
+              <img src={p.img} alt={p.title} className="ip__img" loading="lazy" />
 
               <div className="ip__overlay">
                 <span className="ip__cat">{p.category}</span>

@@ -1,0 +1,41 @@
+.stt {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 999;
+  width: 44px;
+  height: 44px;
+  background: #1d4ed8;
+  color: #ffffff;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(29, 78, 216, 0.4);
+  opacity: 0;
+  transform: translateY(16px);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.2s;
+}
+
+.stt--visible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.stt:hover {
+  background: #1e40af;
+  transform: translateY(-2px);
+}
+
+.stt svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 480px) {
+  .stt { bottom: 20px; right: 20px; }
+}

@@ -1,4 +1,4 @@
-/* ── section shell ────────────────────────────────────────── */
+﻿/* ── section shell ────────────────────────────────────────── */
 .ip {
   padding: 96px 0;
   background: #111111;
@@ -19,7 +19,7 @@
 .ip__tag {
   display: inline-block;
   padding: 4px 14px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -101,7 +101,7 @@
 .ip__cat {
   display: inline-block;
   padding: 3px 10px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 10px;
   font-weight: 700;
@@ -143,7 +143,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  color: #c0392b;
+  color: #1d4ed8;
   font-size: 13px;
   font-weight: 700;
   letter-spacing: 0.5px;
@@ -155,7 +155,7 @@
 .ip__arrow svg {
   width: 18px;
   height: 18px;
-  stroke: #c0392b;
+  stroke: #1d4ed8;
 }
 
 /* ── hover state ──────────────────────────────────────────── */
@@ -215,4 +215,16 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@media (max-width: 360px) {
+  .ip__inner { padding: 0 16px; }
+  .ip__card, .ip__card--featured { height: 200px; }
+  .ip { padding: 48px 0; }
+}
+
+@media (min-width: 1440px) {
+  .ip__inner { max-width: 1600px; padding: 0 60px; }
+  .ip__grid { grid-template-rows: 360px 360px; gap: 20px; }
+  .ip { padding: 120px 0; }
 }

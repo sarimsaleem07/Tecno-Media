@@ -1,4 +1,4 @@
-/* ── section ──────────────────────────────────────────────── */
+﻿/* ── section ──────────────────────────────────────────────── */
 .pl {
   padding: 96px 0 64px;
   background: #0a0a0a;
@@ -15,7 +15,7 @@
 .pl__tag {
   display: inline-block;
   padding: 4px 14px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -104,7 +104,7 @@
 }
 
 .pl__strip-num {
-  color: #c0392b;
+  color: #1d4ed8;
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -141,7 +141,7 @@
 
 .pl__num {
   display: block;
-  color: #c0392b;
+  color: #1d4ed8;
   font-size: 13px;
   font-weight: 800;
   letter-spacing: 2.5px;
@@ -188,8 +188,8 @@
 }
 
 .pl__expand:hover {
-  background: #c0392b;
-  border-color: #c0392b;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
 }
 
 /* ── progress bar ─────────────────────────────────────────── */
@@ -198,7 +198,7 @@
   bottom: 0;
   left: 0;
   height: 3px;
-  background: #c0392b;
+  background: #1d4ed8;
   border-radius: 0 2px 2px 0;
   z-index: 3;
   animation: pl-progress 4s linear forwards;
@@ -229,7 +229,7 @@
 }
 
 .pl__dot--active {
-  background: #c0392b;
+  background: #1d4ed8;
   width: 28px;
   border-radius: 4px;
 }
@@ -256,7 +256,6 @@
   }
 
   .pl__strip-label {
-    transform: translateX(-50%);
     bottom: auto;
     top: 50%;
     transform: translate(-50%, -50%);
@@ -271,4 +270,17 @@
   .pl__panel--active { height: 320px; }
   .pl__header { padding: 0 20px; }
   .pl__desc { font-size: 13.5px; }
+}
+
+@media (max-width: 360px) {
+  .pl__panels { padding: 0 16px; }
+  .pl__panel--active { height: 280px; }
+  .pl__content-inner { padding: 18px 18px; }
+  .pl__title { font-size: 20px; }
+}
+
+@media (min-width: 1440px) {
+  .pl__panels { padding: 0 60px; height: 680px; }
+  .pl__header { padding: 0 60px; }
+  .pl { padding: 120px 0 80px; }
 }

@@ -85,7 +85,7 @@ export default function Services() {
               onClick={() => setLightboxIndex(i)}
             >
               <div className="sv__img-wrap">
-                <img src={s.img} alt={s.title} className="sv__img" />
+                <img src={s.img} alt={s.title} className="sv__img" loading="lazy" />
                 <div className="sv__num">{String(i + 1).padStart(2, '0')}</div>
               </div>
 

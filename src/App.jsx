@@ -10,6 +10,7 @@ import Footer from "./Components/Footer/Footer";
 import About from "./Components/About/About";
 import Header2 from "./Components/Navbar/Header2";
 import SplashScreen from "./Components/SplashScreen/SplashScreen";
+import ScrollToTop from "./Components/ScrollToTop/ScrollToTop";
 
 function App() {
   const [showSplash, setShowSplash] = useState(true);
@@ -27,6 +28,7 @@ function App() {
       <Interior />
       <About />
       <Footer />
+      <ScrollToTop />
     </>
   )
 }

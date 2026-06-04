@@ -23,7 +23,7 @@ export default function Conferences() {
   const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   return (
-    <section className="cf" id="confrences">
+    <section className="cf" id="conferences">
       <div className="cf__inner">
 
         {/* ── Left: text panel ── */}

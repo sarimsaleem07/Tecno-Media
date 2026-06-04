@@ -1,4 +1,4 @@
-/* ── hero shell ───────────────────────────────────────────── */
+﻿/* ── hero shell ───────────────────────────────────────────── */
 .hero {
   position: relative;
   width: 100%;
@@ -78,7 +78,7 @@
 .hero__tag {
   display: inline-block;
   padding: 5px 14px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 12px;
   font-weight: 700;
@@ -125,12 +125,12 @@
 }
 
 .hero__btn--primary {
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   box-shadow: 0 4px 18px rgba(192, 57, 43, 0.45);
 }
 .hero__btn--primary:hover {
-  background: #a93226;
+  background: #1e40af;
   transform: translateY(-2px);
   box-shadow: 0 6px 24px rgba(192, 57, 43, 0.55);
   color: #fff;
@@ -174,8 +174,8 @@
 .hero__arrow--right { right: 28px; }
 
 .hero__arrow:hover {
-  background: #c0392b;
-  border-color: #c0392b;
+  background: #1d4ed8;
+  border-color: #1d4ed8;
   transform: translateY(-50%) scale(1.08);
 }
 
@@ -201,7 +201,7 @@
 }
 
 .hero__dot--active {
-  background: #c0392b;
+  background: #1d4ed8;
   width: 48px;
 }
 
@@ -235,7 +235,7 @@
 
 /* ── responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-  .hero { height: 92vh; min-height: 480px; }
+  .hero { height: 92svh; min-height: 480px; }
 
   .hero__overlay {
     background: linear-gradient(
@@ -267,4 +267,17 @@
 
 @media (max-width: 480px) {
   .hero__btn { padding: 11px 20px; font-size: 13px; }
+}
+
+@media (max-width: 360px) {
+  .hero__content { width: 92%; bottom: 80px; }
+  .hero__arrow--left  { left: 8px; width: 36px; height: 36px; }
+  .hero__arrow--right { right: 8px; width: 36px; height: 36px; }
+  .hero__arrow svg { width: 16px; height: 16px; }
+}
+
+@media (min-width: 1440px) {
+  .hero__content { left: 8%; max-width: 700px; }
+  .hero__arrow--left  { left: 48px; }
+  .hero__arrow--right { right: 48px; }
 }

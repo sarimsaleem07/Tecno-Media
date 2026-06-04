@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import './about.css';
 
 const STATS = [
-  { value: '15+', label: 'Years Experience' },
-  { value: '500+', label: 'Events Delivered' },
+  { value: '12+', label: 'Years Experience' },
+  { value: '400+', label: 'Events Delivered' },
   { value: '300+', label: 'Happy Clients' },
 ];
 
@@ -13,11 +13,11 @@ export default function About() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { name, email, subject, message } = e.target;
-    const link = `mailto:ansabkhan93@yahoo.com?subject=${encodeURIComponent(subject.value)}&body=${encodeURIComponent(
-      `Name: ${name.value}\nEmail: ${email.value}\n\nMessage:\n${message.value}`
-    )}`;
-    window.location.href = link;
+    const text = `Hello Techno Media!\n\nName: ${name.value}\nEmail: ${email.value}\nSubject: ${subject.value}\n\nMessage:\n${message.value}`;
+    const waLink = `https://wa.me/923344205073?text=${encodeURIComponent(text)}`;
+    window.open(waLink, '_blank');
     setSent(true);
+    e.target.reset();
     setTimeout(() => setSent(false), 4000);
   };
 
@@ -77,7 +77,7 @@ export default function About() {
               <label>Your Message</label>
             </div>
             <button type="submit" className={`ac__submit${sent ? ' ac__submit--sent' : ''}`}>
-              {sent ? '✓ Message Sent!' : 'Send Message'}
+              {sent ? '✓ Opening WhatsApp...' : 'Send via WhatsApp'}
             </button>
           </form>
         </div>

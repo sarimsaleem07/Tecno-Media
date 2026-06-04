@@ -1,4 +1,4 @@
-/* ── section shell ────────────────────────────────────────── */
+﻿/* ── section shell ────────────────────────────────────────── */
 .ac {
   padding: 96px 0;
   background: #f7f7f7;
@@ -18,7 +18,7 @@
 .ac__tag {
   display: inline-block;
   padding: 4px 14px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 11px;
   font-weight: 700;
@@ -39,7 +39,7 @@
 
 .ac__heading em {
   font-style: normal;
-  color: #c0392b;
+  color: #1d4ed8;
 }
 
 /* ── about text ───────────────────────────────────────────── */
@@ -81,9 +81,9 @@
 }
 
 .ac__stat-value {
-  font-size: 40px;
+  font-size: clamp(24px, 7vw, 40px);
   font-weight: 800;
-  color: #c0392b;
+  color: #1d4ed8;
   line-height: 1;
 }
 
@@ -145,7 +145,7 @@
 
 .ac__field input:focus,
 .ac__field textarea:focus {
-  border-color: #c0392b;
+  border-color: #1d4ed8;
   background: #fff;
 }
 
@@ -157,7 +157,7 @@
   top: 6px;
   transform: none;
   font-size: 11px;
-  color: #c0392b;
+  color: #1d4ed8;
   font-weight: 600;
   letter-spacing: 0.4px;
 }
@@ -165,7 +165,7 @@
 /* ── submit button ────────────────────────────────────────── */
 .ac__submit {
   padding: 14px;
-  background: #c0392b;
+  background: #1d4ed8;
   color: #fff;
   font-size: 15px;
   font-weight: 700;
@@ -178,7 +178,7 @@
 }
 
 .ac__submit:hover {
-  background: #a93226;
+  background: #1e40af;
   transform: translateY(-1px);
   box-shadow: 0 6px 20px rgba(192, 57, 43, 0.45);
 }
@@ -201,6 +201,20 @@
 @media (max-width: 520px) {
   .ac__row { grid-template-columns: 1fr; }
   .ac__form-wrap { padding: 28px 20px; }
-  .ac__stat:last-child { padding-left: 16px; }
+  .ac__stat { padding-right: 16px; }
+  .ac__stat:last-child { padding-left: 16px; padding-right: 0; }
   .ac__stat:not(:first-child):not(:last-child) { padding-left: 16px; padding-right: 16px; }
+}
+
+@media (max-width: 380px) {
+  .ac__stat { padding-right: 10px; }
+  .ac__stat:last-child { padding-left: 10px; }
+  .ac__stat:not(:first-child):not(:last-child) { padding-left: 10px; padding-right: 10px; }
+  .ac__stat-label { font-size: 11px; letter-spacing: 0; }
+  .ac { padding: 48px 0; }
+}
+
+@media (min-width: 1440px) {
+  .ac__inner { max-width: 1600px; padding: 0 60px; }
+  .ac { padding: 120px 0; }
 }

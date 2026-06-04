@@ -4,6 +4,12 @@ import importImagesFromFolder from '../../utils/importImages';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
 
+const STATS = [
+  { value: '12+',  label: 'Years Experience' },
+  { value: '400+', label: 'Events Delivered'  },
+  { value: '300+', label: 'Happy Clients'     },
+];
+
 export default function Fabrication() {
   const [images, setImages]           = useState([]);
   const [lightboxIndex, setLightbox]  = useState(-1);
@@ -34,8 +40,14 @@ export default function Fabrication() {
           </p>
         </div>
         <div className="fb__header-right">
-          <span className="fb__count">{images.length}+</span>
-          <span className="fb__count-label">Projects Delivered</span>
+          <div className="fb__stats">
+            {STATS.map(({ value, label }) => (
+              <div className="fb__stat" key={label}>
+                <span className="fb__stat-value">{value}</span>
+                <span className="fb__stat-label">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -55,7 +67,7 @@ export default function Fabrication() {
               className="fb__item"
               onClick={() => setLightbox(i % row1.length)}
             >
-              <img src={img} alt={`Stall ${i + 1}`} />
+              <img src={img} alt={`Stall ${i + 1}`} loading="lazy" />
               <div className="fb__item-overlay">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />
@@ -80,7 +92,7 @@ export default function Fabrication() {
               className="fb__item"
               onClick={() => setLightbox(mid + (i % row2.length))}
             >
-              <img src={img} alt={`Stall ${mid + i + 1}`} />
+              <img src={img} alt={`Stall ${mid + i + 1}`} loading="lazy" />
               <div className="fb__item-overlay">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <circle cx="11" cy="11" r="8" /><line x1="21" y1="21" x2="16.65" y2="16.65" />

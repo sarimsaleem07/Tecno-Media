@@ -7,7 +7,7 @@ import './footer.css';
 const LINKS = [
   { label: 'Fabrication', href: '#fabrication' },
   { label: 'Services', href: '#services' },
-  { label: 'Conferences', href: '#confrences' },
+  { label: 'Conferences', href: '#conferences' },
   { label: 'Product Launch', href: '#product' },
   { label: 'Interior Projects', href: '#interior' },
   { label: 'About Us', href: '#contact' },
@@ -27,10 +27,10 @@ export default function Footer() {
               From dream to delivery — we bring your brand to life.
             </p>
             <div className="ft__socials">
-              <a href="https://www.facebook.com/technomedia92/" target="_blank" rel="noopener noreferrer" className="ft__social" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61583501544286&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="ft__social" aria-label="Facebook">
                 <FaFacebookF />
               </a>
-              <a href="tel:+923334496258" className="ft__social" aria-label="WhatsApp">
+              <a href="https://wa.me/923344205073" target="_blank" rel="noopener noreferrer" className="ft__social" aria-label="WhatsApp">
                 <FaWhatsapp />
               </a>
               <a href="mailto:ansabkhan93@yahoo.com" className="ft__social" aria-label="Email">
