@@ -1,100 +1,206 @@
-.contact {
-  padding-block: 70px;
+/* ── section shell ────────────────────────────────────────── */
+.ac {
+  padding: 96px 0;
+  background: #f7f7f7;
 }
 
-.about-head {
-  color: black;
-  font-weight: 700;
-  font-size: 45px;
-  font-family: "Open Sans";
-}
-
-.first-hr {
-  border: 2px solid rgb(0, 0, 0);
-  margin: 0 0 40px;
-  width: 100px;
-  opacity: .75;
-}
-
-.contact-us-container {
-  max-width: 600px;
+.ac__inner {
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: start;
 }
 
-.contact-us-container h2 {
-  text-align: center;
-  margin-bottom: 20px;
-  font-size: 24px;
-  color: #333;
-}
-
-.contact-form .form-group {
-  margin-bottom: 15px;
-}
-
-.contact-form label {
-  display: block;
-  margin-bottom: 5px;
-  font-weight: bold;
-  color: grey;
-  margin-left: 3px;
-  margin-bottom: 9px;
-}
-
-.contact-form input,
-.contact-form textarea {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-sizing: border-box;
-  outline: none;
-  transition: border-color 0.3s ease;
-}
-
-.contact-form input:focus,
-.contact-form textarea:focus {
-  border-color: #007bff;
-}
-
-.contact-form button {
-  width: 100%;
-  padding: 12px;
-  font-size: 16px;
+/* ── shared tag ───────────────────────────────────────────── */
+.ac__tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: #c0392b;
   color: #fff;
-  background-color: grey;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 16px;
 }
 
-.contact-form button:hover {
-  background-color: #4e5153;
-}
-
-.about-us-container {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 18px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.about-us-container p {
-  margin-bottom: 20px;
-  font-size: 16px;
-  line-height: 1.6;
-  color: grey;
-}
-
-.company-name {
+/* ── heading ──────────────────────────────────────────────── */
+.ac__heading {
+  font-size: clamp(26px, 3vw, 38px);
   font-weight: 800;
-  color: #797272;
+  color: #111;
+  line-height: 1.2;
+  margin: 0 0 20px;
+}
+
+.ac__heading em {
+  font-style: normal;
+  color: #c0392b;
+}
+
+/* ── about text ───────────────────────────────────────────── */
+.ac__text {
+  color: #555;
+  font-size: 15.5px;
+  line-height: 1.75;
+  margin-bottom: 16px;
+}
+
+.ac__text strong { color: #111; font-weight: 700; }
+
+/* ── stats row ────────────────────────────────────────────── */
+.ac__stats {
+  display: flex;
+  gap: 0;
+  margin-top: 36px;
+  border-top: 1px solid #e0e0e0;
+  padding-top: 32px;
+}
+
+.ac__stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 24px;
+  border-right: 1px solid #e0e0e0;
+}
+
+.ac__stat:last-child {
+  border-right: none;
+  padding-right: 0;
+  padding-left: 24px;
+}
+
+.ac__stat:not(:first-child):not(:last-child) {
+  padding-left: 24px;
+}
+
+.ac__stat-value {
+  font-size: 40px;
+  font-weight: 800;
+  color: #c0392b;
+  line-height: 1;
+}
+
+.ac__stat-label {
+  font-size: 13px;
+  color: #777;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ── form wrapper ─────────────────────────────────────────── */
+.ac__form-wrap {
+  background: #fff;
+  border-radius: 8px;
+  padding: 40px 36px;
+  box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* ── form grid ────────────────────────────────────────────── */
+.ac__form { display: flex; flex-direction: column; gap: 20px; margin-top: 8px; }
+
+.ac__row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+/* ── floating-label field ─────────────────────────────────── */
+.ac__field {
+  position: relative;
+}
+
+.ac__field input,
+.ac__field textarea {
+  width: 100%;
+  padding: 16px 14px 8px;
+  font-size: 15px;
+  color: #111;
+  background: #f9f9f9;
+  border: 1.5px solid #e0e0e0;
+  border-radius: 6px;
+  outline: none;
+  resize: none;
+  transition: border-color 0.25s, background 0.25s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.ac__field label {
+  position: absolute;
+  top: 50%;
+  left: 14px;
+  transform: translateY(-50%);
+  font-size: 14px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.ac__field textarea ~ label { top: 18px; transform: none; }
+
+.ac__field input:focus,
+.ac__field textarea:focus {
+  border-color: #c0392b;
+  background: #fff;
+}
+
+/* float label up when focused or has value */
+.ac__field input:focus ~ label,
+.ac__field input:not(:placeholder-shown) ~ label,
+.ac__field textarea:focus ~ label,
+.ac__field textarea:not(:placeholder-shown) ~ label {
+  top: 6px;
+  transform: none;
+  font-size: 11px;
+  color: #c0392b;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* ── submit button ────────────────────────────────────────── */
+.ac__submit {
+  padding: 14px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+  box-shadow: 0 3px 14px rgba(192, 57, 43, 0.35);
+}
+
+.ac__submit:hover {
+  background: #a93226;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(192, 57, 43, 0.45);
+}
+
+.ac__submit--sent {
+  background: #27ae60;
+  box-shadow: 0 3px 14px rgba(39, 174, 96, 0.35);
+}
+
+/* ── responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .ac__inner {
+    grid-template-columns: 1fr;
+    gap: 48px;
+    padding: 0 24px;
+  }
+  .ac { padding: 64px 0; }
+}
+
+@media (max-width: 520px) {
+  .ac__row { grid-template-columns: 1fr; }
+  .ac__form-wrap { padding: 28px 20px; }
+  .ac__stat:last-child { padding-left: 16px; }
+  .ac__stat:not(:first-child):not(:last-child) { padding-left: 16px; padding-right: 16px; }
 }

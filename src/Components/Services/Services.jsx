@@ -1,91 +1,120 @@
 import React, { useState } from 'react';
-import './services.css';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
-import img1 from "./../../newAssets/services1.jpg"
-import img2 from "./../../newAssets/services2.jpg"
-import img3 from "./../../newAssets/services3.jpg"
-import img4 from "./../../newAssets/services4.jpg"
-import img5 from "./../../newAssets/services5.jpg"
-import img6 from "./../../newAssets/services6.jpg"
-import img7 from "./../../newAssets/services7.jpg"
-import img8 from "./../../newAssets/services8.jpg"
-import img9 from "./../../newAssets/services9.jpg"
-const Services = () => {
-  const [open, setOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+import './services.css';
 
-  const images = [
-    { src: img1, label: 'Fabrication' },
-    { src: img2, label: 'Ambiance' },
-    { src: img3, label: '⁠Conference & Corporate Events' },
-    { src: img4, label: 'Float designing' },
-    { src: img5, label: 'Furniture'},
-    { src: img6, label: '⁠Interior Designing'},
-    { src: img7, label: 'Mall kiosk' },
-    { src: img8, label: ' ⁠Media Solution' },
-    { src: img9, label: 'Product Launching' },
-  ];
+import img1 from '../../newAssets/services1.jpg';
+import img2 from '../../newAssets/services2.jpg';
+import img3 from '../../newAssets/services3.jpg';
+import img4 from '../../newAssets/services4.jpg';
+import img5 from '../../newAssets/services5.jpg';
+import img6 from '../../newAssets/services6.jpg';
+import img7 from '../../newAssets/services7.jpg';
+import img8 from '../../newAssets/services8.jpg';
+import img9 from '../../newAssets/services9.jpg';
 
-  const openLightbox = (index) => {
-    setPhotoIndex(index);
-    setOpen(true);
-  };
+const SERVICES = [
+  {
+    img: img1,
+    title: 'Exhibition Fabrication',
+    desc: 'Custom-built exhibition stands using premium materials, precise engineering, and bold branding.',
+  },
+  {
+    img: img2,
+    title: 'Ambiance & Décor',
+    desc: 'Transformative event atmospheres through curated lighting, draping, floral, and themed décor.',
+  },
+  {
+    img: img3,
+    title: 'Conference & Corporate',
+    desc: 'End-to-end management for conferences, seminars, and high-profile corporate gatherings.',
+  },
+  {
+    img: img4,
+    title: 'Float Designing',
+    desc: 'Eye-catching branded parade floats that create unforgettable on-road brand impressions.',
+  },
+  {
+    img: img5,
+    title: 'Furniture Supply',
+    desc: 'Bespoke and rental furniture solutions tailored for exhibitions, offices, and events.',
+  },
+  {
+    img: img6,
+    title: 'Interior Designing',
+    desc: 'Commercial and corporate space transformation from concept to finished installation.',
+  },
+  {
+    img: img7,
+    title: 'Mall Kiosk',
+    desc: 'High-impact retail kiosks designed for maximum footfall engagement and brand visibility.',
+  },
+  {
+    img: img8,
+    title: 'Media Solutions',
+    desc: 'LED video walls, AV systems, digital signage, and full media production for any event.',
+  },
+  {
+    img: img9,
+    title: 'Product Launching',
+    desc: 'Experiential product launch events that generate buzz, media coverage, and brand recall.',
+  },
+];
+
+export default function Services() {
+  const [lightboxIndex, setLightboxIndex] = useState(-1);
 
   return (
-    <div className='Services' id='services'>
-      <div className='container'>
-        <h1 className='mainh11'>Services We Provide</h1>
-        <div className='row'>
-          {images.map((img, index) => (
+    <section className="sv" id="services">
+      <div className="sv__inner">
+
+        <div className="sv__header">
+          <span className="sv__tag">What We Do</span>
+          <h2 className="sv__heading">Services We Provide</h2>
+          <p className="sv__sub">
+            A full spectrum of event and exhibition solutions — designed, fabricated,
+            and delivered by one expert team.
+          </p>
+        </div>
+
+        <div className="sv__grid">
+          {SERVICES.map((s, i) => (
             <div
-              key={index}
-              className='col-md-6 col-sm-12 col-lg-4 col-xl-4'
-              onClick={() => openLightbox(index)}
-              style={{ cursor: 'pointer' }}
+              className="sv__card"
+              key={i}
+              onClick={() => setLightboxIndex(i)}
             >
-              <div className='image-container'>
-                <img className='service-img1' src={img.src} alt={img.label} />
-                <div className='overlay'></div>
-                <div className='overlay-text'>{img.label}</div>
+              <div className="sv__img-wrap">
+                <img src={s.img} alt={s.title} className="sv__img" />
+                <div className="sv__num">{String(i + 1).padStart(2, '0')}</div>
+              </div>
+
+              <div className="sv__body">
+                <div className="sv__bar" />
+                <h3 className="sv__title">{s.title}</h3>
+                <p className="sv__desc">{s.desc}</p>
+                <span className="sv__cta">
+                  View Gallery
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                    <line x1="5" y1="12" x2="19" y2="12" />
+                    <polyline points="12 5 19 12 12 19" />
+                  </svg>
+                </span>
               </div>
             </div>
           ))}
         </div>
+
       </div>
 
-      {open && (
+      {lightboxIndex >= 0 && (
         <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          slides={images.map((img) => ({ src: img.src }))}
-          index={photoIndex}
-          onClose={() => setOpen(false)}
-          styles={{
-            container: {
-              backgroundColor: 'rgba(0, 0, 0, 1)',
-              padding: '0',
-              margin: '0',
-              height: '100vh',
-              width: '100vw',
-            },
-            slide: {
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-            },
-            image: {
-              maxHeight: '100%',
-              maxWidth: '100%',
-              objectFit: 'contain',
-            },
-          }}
+          open
+          close={() => setLightboxIndex(-1)}
+          slides={SERVICES.map(s => ({ src: s.img }))}
+          index={lightboxIndex}
         />
       )}
-    </div>
+    </section>
   );
-};
-
-export default Services;
-    
+}

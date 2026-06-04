@@ -1,66 +1,215 @@
-.fabrication {
-  background-color: #f5f5f5;
-  padding: 75px 0px;
+/* ── section ──────────────────────────────────────────────── */
+.fb {
+  padding: 96px 0 80px;
+  background: #ffffff;
+  overflow: hidden;
 }
 
-.image-container {
-  width: 100%;
-  margin: 15px 0;
+/* ── header ───────────────────────────────────────────────── */
+.fb__header {
+  max-width: 1200px;
+  margin: 0 auto 52px;
+  padding: 0 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
 }
 
-.image-container img {
-  width: 100%;
-  height: 285px;
-  border-radius: 10px;
-  object-fit: cover;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.fb__tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 14px;
 }
 
-.swiper-pagination-bullet {
-  background-color: #333;
-  opacity: 0.5;
+.fb__heading {
+  font-size: clamp(28px, 3.5vw, 44px);
+  font-weight: 800;
+  color: #111;
+  margin: 0 0 12px;
+  line-height: 1.2;
 }
 
-.swiper-pagination-bullet-active {
-  background-color: #333;
-  opacity: 1;
+.fb__sub {
+  color: #666;
+  font-size: 15.5px;
+  line-height: 1.7;
+  max-width: 480px;
+  margin: 0;
 }
-.swiper-container {
+
+.fb__header-right {
+  flex-shrink: 0;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-bottom: 4px;
+}
+
+.fb__count {
+  font-size: 64px;
+  font-weight: 900;
+  color: #c0392b;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+
+.fb__count-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+/* ── constrained marquee area with edge fade ──────────────── */
+.fb__marquee {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  padding: 0 40px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
+  mask-repeat: no-repeat;
+  mask-size: 100% 100%;
+}
+
+/* ── marquee track wrapper ────────────────────────────────── */
+.fb__track-wrap {
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+.fb__track-wrap:last-of-type {
+  margin-bottom: 0;
+}
+
+/* ── scrolling track ──────────────────────────────────────── */
+.fb__track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
+}
+
+.fb__track--left {
+  animation: fb-scroll-left 160s linear infinite;
+}
+
+.fb__track--right {
+  animation: fb-scroll-right 160s linear infinite;
+}
+
+@keyframes fb-scroll-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes fb-scroll-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
+/* ── individual image item ────────────────────────────────── */
+.fb__item {
   position: relative;
+  flex-shrink: 0;
+  width: 320px;
+  height: 230px;
+  border-radius: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  background: #eee;
+}
+
+.fb__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fb__item:hover img {
+  transform: scale(1.07);
+}
+
+/* zoom overlay icon */
+.fb__item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
   display: flex;
   align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
 }
 
-.nav-button {
+.fb__item-overlay svg {
+  width: 36px;
+  height: 36px;
+  stroke: #fff;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.fb__item:hover .fb__item-overlay {
+  background: rgba(0, 0, 0, 0.42);
+}
+
+.fb__item:hover .fb__item-overlay svg {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* red bottom border on hover */
+.fb__item::after {
+  content: '';
   position: absolute;
-  z-index: 10;
-  top: 50%;
-  /* transform: translateY(-50%); */
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 18px;
-  background: transparent;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: #c0392b;
+  transition: width 0.35s ease;
 }
 
-.nav-button.left {
-  color: black;
-  left: -50px;
+.fb__item:hover::after {
+  width: 100%;
 }
 
-.nav-button.right {
-  right: -50px;
-  color: black;
-
-}
-@media (max-width: 600px) {
-  .nav-button.left{
-    left: 0px;
-    color: white; 
+/* ── responsive ───────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .fb__header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 24px;
+    margin-bottom: 36px;
   }
-  .nav-button.right{
-    right: 0px;
-    color: white;
+
+  .fb__header-right {
+    flex-direction: row;
+    align-items: baseline;
+    gap: 10px;
   }
+
+  .fb__count { font-size: 48px; }
+  .fb { padding: 64px 0 56px; }
+}
+
+@media (max-width: 480px) {
+  .fb__item { width: 240px; height: 170px; }
+  .fb__track { gap: 10px; }
 }

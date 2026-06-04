@@ -1,0 +1,38 @@
+.splash-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.8s ease;
+}
+
+.splash-overlay.splash-fade-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.splash-logo-wrapper {
+  animation: splashPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+.splash-logo {
+  width: 220px;
+  max-width: 60vw;
+  height: auto;
+  display: block;
+}
+
+@keyframes splashPop {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

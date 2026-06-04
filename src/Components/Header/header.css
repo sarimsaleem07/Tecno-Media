@@ -1,26 +1,270 @@
-.carousel-item img {
-    width: 100%;
-    height: 100vh;
-    object-fit: cover;
+/* ── hero shell ───────────────────────────────────────────── */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 560px;
+  overflow: hidden;
+  background: #0a0a0a;
 }
 
-.imgDiv {
-    width: 100%;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* ── slides (Ken Burns zoom) ──────────────────────────────── */
+.hero__slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.08);
+  transition: opacity 0.8s ease, transform 6s ease;
+  will-change: opacity, transform;
 }
-.parent {
-    width: 100%;
-    height: 100%;
+
+.hero__slide--active {
+  opacity: 1;
+  transform: scale(1);
 }
+
+/* ── dark gradient overlay ────────────────────────────────── */
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.72) 0%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  z-index: 1;
+}
+
+/* ── text content ─────────────────────────────────────────── */
+.hero__content {
+  position: absolute;
+  z-index: 2;
+  top: 50%;
+  left: 7%;
+  transform: translateY(-50%);
+  max-width: 580px;
+}
+
+.hero__content--enter .hero__tag,
+.hero__content--enter .hero__heading,
+.hero__content--enter .hero__sub,
+.hero__content--enter .hero__actions {
+  animation: slideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.hero__content--enter .hero__heading  { animation-delay: 0.08s; }
+.hero__content--enter .hero__sub      { animation-delay: 0.16s; }
+.hero__content--enter .hero__actions  { animation-delay: 0.24s; }
+
+.hero__content--exit .hero__tag,
+.hero__content--exit .hero__heading,
+.hero__content--exit .hero__sub,
+.hero__content--exit .hero__actions {
+  animation: slideDown 0.5s ease both;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+@keyframes slideDown {
+  from { opacity: 1; transform: translateY(0);    }
+  to   { opacity: 0; transform: translateY(-16px);}
+}
+
+.hero__tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: #c0392b;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  margin-bottom: 18px;
+}
+
+.hero__heading {
+  margin: 0 0 18px;
+  color: #ffffff;
+  font-size: clamp(32px, 4.5vw, 58px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.5px;
+}
+
+.hero__sub {
+  margin: 0 0 32px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(14px, 1.5vw, 17px);
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 440px;
+}
+
+/* ── CTA buttons ──────────────────────────────────────────── */
+.hero__actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.hero__btn {
+  display: inline-block;
+  padding: 13px 28px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.25s;
+}
+
+.hero__btn--primary {
+  background: #c0392b;
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(192, 57, 43, 0.45);
+}
+.hero__btn--primary:hover {
+  background: #a93226;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(192, 57, 43, 0.55);
+  color: #fff;
+}
+
+.hero__btn--outline {
+  background: transparent;
+  color: #fff;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+}
+.hero__btn--outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: #fff;
+  transform: translateY(-2px);
+  color: #fff;
+}
+
+/* ── arrow buttons ────────────────────────────────────────── */
+.hero__arrow {
+  position: absolute;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.25s, transform 0.25s;
+  backdrop-filter: blur(6px);
+}
+
+.hero__arrow svg { width: 20px; height: 20px; }
+
+.hero__arrow--left  { left: 28px; }
+.hero__arrow--right { right: 28px; }
+
+.hero__arrow:hover {
+  background: #c0392b;
+  border-color: #c0392b;
+  transform: translateY(-50%) scale(1.08);
+}
+
+/* ── dot indicators ───────────────────────────────────────── */
+.hero__dots {
+  position: absolute;
+  z-index: 3;
+  bottom: 32px;
+  left: 7%;
+  display: flex;
+  gap: 10px;
+}
+
+.hero__dot {
+  width: 28px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.35);
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background 0.3s, width 0.3s;
+  padding: 0;
+}
+
+.hero__dot--active {
+  background: #c0392b;
+  width: 48px;
+}
+
+/* ── slide counter ────────────────────────────────────────── */
+.hero__counter {
+  position: absolute;
+  z-index: 3;
+  bottom: 24px;
+  right: 36px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.hero__counter-cur {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.hero__counter-sep {
+  width: 24px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+}
+
+/* ── responsive ───────────────────────────────────────────── */
 @media (max-width: 768px) {
-    .carousel-item img{
-        height: 40vh;
-    }
+  .hero { height: 92vh; min-height: 480px; }
+
+  .hero__overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.3) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    );
+  }
+
+  .hero__content {
+    left: 50%;
+    top: auto;
+    bottom: 90px;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 88%;
+    max-width: 100%;
+  }
+
+  .hero__sub { margin-left: auto; margin-right: auto; }
+  .hero__actions { justify-content: center; }
+
+  .hero__dots { left: 50%; transform: translateX(-50%); bottom: 40px; }
+  .hero__counter { display: none; }
+
+  .hero__arrow--left  { left: 12px; width: 40px; height: 40px; }
+  .hero__arrow--right { right: 12px; width: 40px; height: 40px; }
 }
-@media (min-width: 769px) and (max-width: 991) {
-    .carousel-item img{
-        height: 60vh;
-    }
+
+@media (max-width: 480px) {
+  .hero__btn { padding: 11px 20px; font-size: 13px; }
 }

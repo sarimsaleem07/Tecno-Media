@@ -1,92 +1,134 @@
-import React, { useState } from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import 'swiper/css';
-import launch1 from './../../newAssets/launch1.jpg';
-import launch2 from './../../newAssets/launch2.jpg';
-import launch3 from './../../newAssets/launch3.jpg';
-import launch4 from './../../newAssets/launch4.jpg';
-
-import './product.css';
+import React, { useState, useEffect, useCallback } from 'react';
 import Lightbox from 'yet-another-react-lightbox';
 import 'yet-another-react-lightbox/styles.css';
+import './product.css';
 
-const ProductLaunch = () => {
-  const [open, setOpen] = useState(false);
-  const [photoIndex, setPhotoIndex] = useState(0);
+import img1 from '../../newAssets/launch1.jpg';
+import img2 from '../../newAssets/launch2.jpg';
+import img3 from '../../newAssets/launch3.jpg';
+import img4 from '../../newAssets/launch4.jpg';
 
-  const images = [launch1, launch2, launch3, launch4];
+const PANELS = [
+  {
+    img: img1,
+    num: '01',
+    title: 'Corporate Gala',
+    sub: 'Grand ballroom setups with 300+ seats, LED production walls, and full AV management.',
+  },
+  {
+    img: img2,
+    num: '02',
+    title: 'Live Event Stage',
+    sub: 'Custom truss rigs, dynamic stage lighting, and LED dance floors for unforgettable nights.',
+  },
+  {
+    img: img3,
+    num: '03',
+    title: 'Themed Experiences',
+    sub: 'Fully immersive environments with neon installs, projection mapping, and branded décor.',
+  },
+  {
+    img: img4,
+    num: '04',
+    title: 'Product Reveal',
+    sub: 'High-drama reveals with spotlighting, draping, and cinematic stage choreography.',
+  },
+];
 
-  const openLightbox = (index) => {
-    setPhotoIndex(index);
-    setOpen(true);
-  };
+export default function ProductLaunch() {
+  const [active, setActive]           = useState(0);
+  const [lightboxIndex, setLightbox]  = useState(-1);
+  const [paused, setPaused]           = useState(false);
+
+  const advance = useCallback(
+    () => setActive(a => (a + 1) % PANELS.length),
+    []
+  );
+
+  useEffect(() => {
+    if (paused) return;
+    const t = setInterval(advance, 4000);
+    return () => clearInterval(t);
+  }, [advance, paused]);
 
   return (
-    <div className="product" id="product">
-      <div className="container">
-        <div className="text-containers">
-          <h1 className="mainh1">Product Launching</h1>
-        </div>
-        <Swiper
-          spaceBetween={10}
-          loop={true}
-          autoplay={{
-            delay: 1500, 
-            disableOnInteraction: false, 
-          }}
-          modules={[Autoplay]} 
-          breakpoints={{
-            320: { slidesPerView: 1 },
-            768: { slidesPerView: 2 },
-            1024: { slidesPerView: 3 },
-          }}
-        >
-          {images.map((img, index) => (
-            <SwiperSlide key={index}>
-              <div
-                className="image-container"
-                onClick={() => openLightbox(index)}
-                style={{ cursor: 'pointer' }}
-              >
-                <img src={img} alt={`Product Launch ${index + 1}`} className="product-img" />
-              </div>
-            </SwiperSlide>
-          ))}
-        </Swiper>
+    <section className="pl" id="product">
+
+      {/* ── header ── */}
+      <div className="pl__header">
+        <span className="pl__tag">Showcase</span>
+        <h2 className="pl__heading">Product Launching</h2>
+        <p className="pl__sub">
+          Bold reveals, immersive stages, and unforgettable moments —
+          we bring your product launch to life.
+        </p>
       </div>
 
-      {open && (
+      {/* ── accordion panels ── */}
+      <div
+        className="pl__panels"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        {PANELS.map((p, i) => (
+          <div
+            key={i}
+            className={`pl__panel${active === i ? ' pl__panel--active' : ''}`}
+            onClick={() => setActive(i)}
+            style={{ backgroundImage: `url(${p.img})` }}
+          >
+            {/* inactive: vertical label */}
+            <div className="pl__strip-label">
+              <span className="pl__strip-num">{p.num}</span>
+              <span className="pl__strip-title">{p.title}</span>
+            </div>
+
+            {/* active: full content */}
+            <div className="pl__content">
+              <div className="pl__content-inner">
+                <span className="pl__num">{p.num}</span>
+                <h3 className="pl__title">{p.title}</h3>
+                <p className="pl__desc">{p.sub}</p>
+                <button
+                  className="pl__expand"
+                  onClick={e => { e.stopPropagation(); setLightbox(i); }}
+                >
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" />
+                  </svg>
+                  View Full
+                </button>
+              </div>
+            </div>
+
+            {/* progress bar on active */}
+            {active === i && !paused && (
+              <div className="pl__progress" key={`${i}-${active}`} />
+            )}
+          </div>
+        ))}
+      </div>
+
+      {/* ── dot nav ── */}
+      <div className="pl__dots">
+        {PANELS.map((_, i) => (
+          <button
+            key={i}
+            className={`pl__dot${active === i ? ' pl__dot--active' : ''}`}
+            onClick={() => setActive(i)}
+            aria-label={`Slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {lightboxIndex >= 0 && (
         <Lightbox
-          open={open}
-          close={() => setOpen(false)}
-          slides={images.map((img) => ({ src: img }))}
-          index={photoIndex}
-          onClose={() => setOpen(false)}
-          styles={{
-            container: {
-              backgroundColor: 'rgba(0, 0, 0, 1)',
-              padding: '0',
-              margin: '0',
-              height: '100vh',
-              width: '100vw',
-            },
-            slide: {
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              height: '100%',
-            },
-            image: {
-              maxHeight: '100%',
-              maxWidth: '100%',
-              objectFit: 'contain',
-            },
-          }}
+          open
+          close={() => setLightbox(-1)}
+          slides={PANELS.map(p => ({ src: p.img }))}
+          index={lightboxIndex}
         />
       )}
-    </div>
+    </section>
   );
-};
-
-export default ProductLaunch;
+}
