@@ -1,15 +1,16 @@
 import React from 'react';
 import { FaFacebookF, FaWhatsapp, FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
-import logo from '../assets/logo.png';
+import logo from '../../newAssets/logo.png';
+
 import './footer.css';
 
 const LINKS = [
-  { label: 'Fabrication',      href: '#fabrication' },
-  { label: 'Services',         href: '#services' },
-  { label: 'Conferences',      href: '#confrences' },
-  { label: 'Product Launch',   href: '#product' },
-  { label: 'Interior Projects',href: '#interior' },
-  { label: 'About Us',         href: '#contact' },
+  { label: 'Fabrication', href: '#fabrication' },
+  { label: 'Services', href: '#services' },
+  { label: 'Conferences', href: '#confrences' },
+  { label: 'Product Launch', href: '#product' },
+  { label: 'Interior Projects', href: '#interior' },
+  { label: 'About Us', href: '#contact' },
 ];
 
 export default function Footer() {

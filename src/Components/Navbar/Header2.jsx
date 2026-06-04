@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import './Nav.css';
-import logo from '../assets/logo.png';
+import logo from '../../newAssets/logo.png';
 
 const NAV_LINKS = [
   { label: 'Fabrication', href: '#fabrication' },
