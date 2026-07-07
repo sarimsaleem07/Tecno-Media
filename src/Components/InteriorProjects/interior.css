@@ -62,7 +62,7 @@
 .ip__card {
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 2px;
   cursor: pointer;
   background: #000;
 }

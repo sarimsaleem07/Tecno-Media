@@ -70,10 +70,10 @@ export default function Services() {
 
         <div className="sv__header">
           <span className="sv__tag">What We Do</span>
-          <h2 className="sv__heading">Services We Provide</h2>
+          <h2 className="sv__heading">Exhibition Fabrication & Event Services in Pakistan</h2>
           <p className="sv__sub">
-            A full spectrum of event and exhibition solutions — designed, fabricated,
-            and delivered by one expert team.
+            A full spectrum of exhibition fabrication, booth design, conference management,
+            product launch events, and interior transformation services for brands across Pakistan.
           </p>
         </div>
 

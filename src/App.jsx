@@ -17,7 +17,7 @@ function App() {
   const handleSplashFinish = useCallback(() => setShowSplash(false), []);
 
   return (
-    <>
+    <main id="main-content">
       {showSplash && <SplashScreen onFinish={handleSplashFinish} />}
       <Header2/>
       <Header />
@@ -29,7 +29,7 @@ function App() {
       <About />
       <Footer />
       <ScrollToTop />
-    </>
+    </main>
   )
 }
 

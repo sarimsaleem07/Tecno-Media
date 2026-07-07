@@ -7,7 +7,7 @@
 .sv__inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 60px;
 }
 
 /* ── header ───────────────────────────────────────────────── */
@@ -55,7 +55,7 @@
 /* ── card ─────────────────────────────────────────────────── */
 .sv__card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
   cursor: pointer;

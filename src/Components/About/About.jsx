@@ -34,8 +34,9 @@ export default function About() {
           </h2>
           <p className="ac__text">
             At <strong>Techno Media</strong>, we specialise in end-to-end exhibition fabrication,
-            conference management, product launches, and interior projects. For over a decade we have
-            partnered with leading brands to craft experiences that go far beyond the ordinary.
+            conference management, product launches, and interior projects for businesses across Lahore
+            and Pakistan. For over a decade we have partnered with leading brands to craft experiences
+            that go far beyond the ordinary.
           </p>
           <p className="ac__text">
             Our in-house team of designers, fabricators, and project managers handles every detail —

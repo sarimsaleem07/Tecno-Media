@@ -44,7 +44,7 @@
 .pl__panels {
   display: flex;
   gap: 8px;
-  height: 560px;
+  height: 420px;
   padding: 0 40px;
   cursor: pointer;
 }
@@ -52,7 +52,7 @@
 .pl__panel {
   position: relative;
   flex: 0.6;
-  border-radius: 10px;
+  border-radius: 2px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -171,7 +171,7 @@
   padding: 10px 22px;
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 4px;
+  border-radius: 2px;
   color: #fff;
   font-size: 13px;
   font-weight: 600;
@@ -231,7 +231,7 @@
 .pl__dot--active {
   background: #1d4ed8;
   width: 28px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 /* ── responsive ───────────────────────────────────────────── */
@@ -247,11 +247,11 @@
     flex: none;
     height: 80px;
     transition: height 0.55s cubic-bezier(0.4, 0, 0.2, 1);
-    border-radius: 8px;
+    border-radius: 2px;
   }
 
   .pl__panel--active {
-    height: 420px;
+    height: 320px;
     flex: none;
   }
 
@@ -267,20 +267,20 @@
 }
 
 @media (max-width: 480px) {
-  .pl__panel--active { height: 320px; }
+  .pl__panel--active { height: 250px; }
   .pl__header { padding: 0 20px; }
   .pl__desc { font-size: 13.5px; }
 }
 
 @media (max-width: 360px) {
   .pl__panels { padding: 0 16px; }
-  .pl__panel--active { height: 280px; }
+  .pl__panel--active { height: 220px; }
   .pl__content-inner { padding: 18px 18px; }
   .pl__title { font-size: 20px; }
 }
 
 @media (min-width: 1440px) {
-  .pl__panels { padding: 0 60px; height: 680px; }
+  .pl__panels { padding: 0 60px; height: 520px; }
   .pl__header { padding: 0 60px; }
   .pl { padding: 120px 0 80px; }
 }

@@ -1,28 +1,49 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import './header.css';
-import carousel1 from './../../newAssets/carousel1.jpg';
-import carousel2 from './../../newAssets/carousel2.jpg';
-import carousel3 from './../../newAssets/carousel3.jpg';
+import carousel1 from './../../newAssets/carousel1.jpeg';
+import carousel2 from './../../newAssets/carousel2.jpeg';
+import carousel3 from './../../newAssets/carousel3.jpeg';
+import carousel4 from './../../newAssets/carousel4.jpeg';
+import carousel5 from './../../newAssets/carousel5.jpeg';
+import carousel6 from './../../newAssets/carousel6.jpeg';
 
 const SLIDES = [
   {
     img: carousel3,
     tag: 'Exhibition Fabrication',
     heading: 'Crafting Extraordinary\nExhibition Experiences',
-    sub: 'From concept to completion — we build stands that command attention.',
+    sub: 'Custom stall design and exhibition fabrication solutions for brands across Pakistan.',
   },
   {
     img: carousel2,
     tag: 'Booth Design',
     heading: 'Turning Bold Visions\nInto Stunning Realities',
-    sub: 'World-class craftsmanship delivered on time, every time.',
+    sub: 'Premium booth design and event production delivered with precision and impact.',
   },
   {
     img: carousel1,
     tag: 'Event Solutions',
-    heading: 'Pakistan\'s Leading Exhibition & Stall Fabrication Company Since 2014',
-    sub: 'Transforming Ideas Into Reality',
-  }
+    heading: 'Pakistan\'s Leading Exhibition Fabrication & Event Solutions Company',
+    sub: 'Conference management, product launches, and interior projects built from concept to delivery.',
+  },
+  {
+    img: carousel4,
+    tag: 'Interior Projects',
+    heading: 'Transforming Spaces\nWith Creative Excellence',
+    sub: 'Bespoke interior design and fit-out solutions that elevate every commercial environment.',
+  },
+  {
+    img: carousel5,
+    tag: 'Product Launches',
+    heading: 'Launching Brands\nWith Unforgettable Impact',
+    sub: 'High-energy product launch events crafted to captivate audiences and amplify brand presence.',
+  },
+  {
+    img: carousel6,
+    tag: 'Conference Management',
+    heading: 'Seamless Conferences\nDelivered End-to-End',
+    sub: 'Full-service conference planning and management for corporate events across Pakistan.',
+  },
 ];
 
 export default function Header() {

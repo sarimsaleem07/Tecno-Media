@@ -1,0 +1,28 @@
+# Techno Media - robots.txt
+# Allow search engines to crawl all pages
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+Disallow: /api/
+
+# Specific rules for Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Specific rules for Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Crawl delay to reduce server load
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://technomedia.pk/sitemap.xml
+Sitemap: https://technomedia.pk/sitemap-pages.xml
+
+# Allow indexing of assets
+Allow: /assets/
+Allow: /newAssets/
+Allow: /favicon.png

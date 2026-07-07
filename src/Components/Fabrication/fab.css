@@ -96,7 +96,7 @@
   max-width: 1200px;
   margin: 0 auto;
   overflow: hidden;
-  padding: 0 40px;
+  padding: 0 60px;
   -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 85%, transparent 100%);
   -webkit-mask-repeat: no-repeat;
   -webkit-mask-size: 100% 100%;
@@ -147,7 +147,7 @@
   flex-shrink: 0;
   width: 320px;
   height: 230px;
-  border-radius: 8px;
+  border-radius: 2px;
   overflow: hidden;
   cursor: pointer;
   background: #eee;

@@ -98,7 +98,7 @@
 /* ── form wrapper ─────────────────────────────────────────── */
 .ac__form-wrap {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 2px;
   padding: 40px 36px;
   box-shadow: 0 4px 40px rgba(0, 0, 0, 0.08);
 }
@@ -121,7 +121,7 @@
   color: #111;
   background: #f9f9f9;
   border: 1.5px solid #e0e0e0;
-  border-radius: 6px;
+  border-radius: 2px;
   outline: none;
   resize: none;
   transition: border-color 0.25s, background 0.25s;
@@ -171,7 +171,7 @@
   font-weight: 700;
   letter-spacing: 0.5px;
   border: none;
-  border-radius: 6px;
+  border-radius: 2px;
   cursor: pointer;
   transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
   box-shadow: 0 3px 14px rgba(192, 57, 43, 0.35);
